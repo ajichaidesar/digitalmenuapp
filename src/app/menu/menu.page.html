@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/homescreen" class="ion-back-button"></ion-back-button>
+    </ion-buttons>
+    <ion-title style="text-align: center;">Kopi Kanthi</ion-title>
+    <ion-buttons slot="end">
+      <ion-icon name="home" src="assets/Mask group.svg"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-button expand="full" >Nomor Meja Anda</ion-button>
+
+  <ion-segment class="custom-segment">
+    <ion-segment-button value="kopi">
+      Kopi
+    </ion-segment-button>
+    <ion-segment-button value="non-kopi">
+      Non-Kopi
+    </ion-segment-button>
+    <ion-segment-button value="snack">
+      Snack
+    </ion-segment-button>
+  </ion-segment>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" *ngFor="let menu of menus">
+        <ion-card (click)="addToCart(menu)">
+          <ion-img [src]="menu.image"></ion-img>
+          <ion-card-header>
+            <ion-card-title>{{ menu.name }}</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-button expand="full" (click)="openCart()">
+    {{ cartItems.length }} Jumlah Pesanan
+  </ion-button>
+</ion-content>
+
+

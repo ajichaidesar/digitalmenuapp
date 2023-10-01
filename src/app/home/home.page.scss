@@ -1,0 +1,10 @@
+ion-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Mengatur tinggi item menjadi tinggi viewport */
+  
+  ion-spinner {
+    margin: auto; /* Mengatur margin menjadi auto untuk mengatur posisi spinner di tengah */
+  }
+}
