@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -6,31 +7,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu.page.scss'],
 })
 export class MenuPage implements OnInit {
-
   menus = [
-    { name: 'Menu 1', image: 'assets/menu1.jpg' },
-    { name: 'Menu 2', image: 'assets/menu2.jpg' },
-    { name: 'Menu 3', image: 'assets/menu3.jpg' },
-    { name: 'Menu 4', image: 'assets/menu4.jpg' },
+    { name: 'Menu 1', image: 'assets/Menu Kopi 1 2.png' },
+    { name: 'Menu 2', image: 'assets/Menu Kopi 2 2.png' },
+    { name: 'Menu 3', image: 'assets/Menu Kopi 3 2.png' },
+    { name: 'Menu 4', image: 'assets/Menu Kopi 2 2.png' },
     // Add more menu items here
-
-  ]
-
+  ];
   cartItems: any[] = [];
+
+  constructor(private router: Router) { }
 
   addToCart(menu: any) {
     this.cartItems.push(menu);
   }
 
   openCart() {
-    // Implement the logic to open the cart or perform any desired action
+    this.router.navigate(['/cart']);
   }
-
-
-
-  constructor() { }
 
   ngOnInit() {
   }
-
 }
