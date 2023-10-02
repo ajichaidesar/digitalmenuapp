@@ -28,6 +28,7 @@ export class MenuPage implements OnInit {
   cartItems: any[] = [];
   selectedSegment: string = ''; // Initialize with an empty string
   filteredMenus: any[] = [];
+  clickCounts: { [key: string]: number } = {};
 
   constructor(
     private alertController: AlertController,
@@ -62,8 +63,16 @@ export class MenuPage implements OnInit {
     await alert.present();
   }
 
+ 
+
   addToCart(menu: any) {
+    const existingItem = this.cartItems.find(item => item.name === menu.name);
+    if (existingItem) {
+      // Item already exists in the cart, ignore the addition
+      return;
+    }
     this.cartService.addToCart(menu);
+    this.cartItems = this.cartService.getCartItems();
   }
 
   openCart() {
@@ -76,6 +85,10 @@ export class MenuPage implements OnInit {
     } else {
       this.filteredMenus = this.menus.filter(menu => menu.type === this.selectedSegment);
     }
+  }
+
+  get clickCountsTotal(): number {
+    return Object.values(this.clickCounts).reduce((a, b) => a + b, 0);
   }
 
   ngOnInit() {
