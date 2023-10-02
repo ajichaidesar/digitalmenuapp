@@ -3,21 +3,9 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
-  },
-  {
     path: '',
     redirectTo: 'homescreen',
     pathMatch: 'full'
-  },
-  {
-    path: 'testing',
-    loadChildren: () => import('./testing/testing.module').then( m => m.TestingPageModule)
-  },
-  {
-    path: 'exp',
-    loadChildren: () => import('./exp/exp.module').then( m => m.ExpPageModule)
   },
   {
     path: 'homescreen',
@@ -34,6 +22,10 @@ const routes: Routes = [
   {
     path: 'payment',
     loadChildren: () => import('./payment/payment.module').then( m => m.PaymentPageModule)
+  },
+  {
+    path: 'americano',
+    loadChildren: () => import('./americano/americano.module').then( m => m.AmericanoPageModule)
   },
 ];
 

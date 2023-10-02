@@ -2,17 +2,19 @@
   <ion-card class="center">
     <img alt="Tempat Kopi kanthi" src="assets/Tempat Kopi kanthi 1.png" />
   </ion-card>
-  <div class="avatar">
+  <ion-card class="avatar">
     <img alt="Logo Kopi Kanthi" src="assets/Logo Kopi Kanthi 1.svg" />
-  </div>
+  </ion-card>
   <ion-card class="Info-bisnis">
-    <ion-card-title>Kopi kanthi</ion-card-title>
-    <ion-card-subtitle>WeekDay 17:00 - 00:00</ion-card-subtitle>
-    <ion-card-subtitle>WeekDay 17:00 - 00:00</ion-card-subtitle>
-    <ion-card-content>
-      Perumahan Taman Jaya 
-      (Jalur, sebelah kiri, Kec. Cipondoh) Kota Tangerang, Banten 15148
+    <ion-card-title class="size1">Kopi kanthi</ion-card-title>
+    <ion-card-subtitle class="size2">
+      <ion-icon name="alarm-outline" color="danger"></ion-icon>WeekDay 17:00 - 00:00
+    </ion-card-subtitle>
+    <ion-card-subtitle class="size2">Weekend 17:00 - 01:00</ion-card-subtitle>
+    <ion-card-content class="size3">
+      <ion-icon name="location-outline" color="danger"></ion-icon>
+      Perumahan Taman Jaya (Jalur, sebelah kiri, Kec. Cipondoh) Kota Tangerang, Banten 15148
     </ion-card-content>
   </ion-card>
-  <ion-button shape="round" class="rectangle-5" (click)="goToMenuPage()">Lihat Menu</ion-button>
+  <ion-button color="dark" shape="round" class="rectangle-5" (click)="showTableNumberPrompt()">Lihat Menu</ion-button>
 </ion-content>

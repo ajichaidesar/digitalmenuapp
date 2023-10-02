@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CartService } from './cart.service';
 
 @Component({
   selector: 'app-cart',
@@ -7,35 +8,37 @@ import { Router } from '@angular/router';
   styleUrls: ['./cart.page.scss'],
 })
 export class CartPage implements OnInit {
+  tableNumber: number = 0; // Assign an initial value to tableNumber
   cartItems: any[] = [];
-  cartTitle: string = '';
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private cartService: CartService
+  ) { }
 
   ngOnInit() {
-    // Initialize cartItems and cartTitle
-    this.cartItems = [
-      { name: 'Product 1', price: 10 },
-      { name: 'Product 2', price: 20 },
-      { name: 'Product 3', price: 30 }
-    ];
-
-    // Set cartTitle based on the desired language
-    this.setCartTitle('Cart'); // Default to English
+    // Initialize cartItems
+    this.cartItems = this.cartService.getCartItems();
   }
 
-  setCartTitle(title: string) {
-    this.cartTitle = title;
+  decreaseQuantity(item: any) {
+    if (item.quantity > 1) {
+      item.quantity--;
+    }
   }
 
-  addToCart(menu: any) {
-    this.cartItems.push(menu);
+  increaseQuantity(item: any) {
+    item.quantity++;
+  }
+
+  openCart() {
+    this.router.navigate(['/cart']);
   }
 
   pesanSekarang() {
-    // Implement logic to perform any necessary actions before navigating to the payment page
-
-    // Redirect to the payment page
+    // Implement any necessary logic or display a success message to the user
+    alert('Order placed successfully!');
+    // Redirect to the payment page or any other desired page
     this.router.navigate(['/payment']);
   }
 }

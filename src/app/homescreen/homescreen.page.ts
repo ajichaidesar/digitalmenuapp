@@ -1,19 +1,51 @@
-import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
-import { MenuPage } from '../menu/menu.page';
+import { Component, Inject } from '@angular/core';
+import { AlertController, NavController } from '@ionic/angular';
+import { Router } from '@angular/router';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-homescreen',
   templateUrl: './homescreen.page.html',
   styleUrls: ['./homescreen.page.scss'],
 })
-export class HomescreenPage implements OnInit {
-  constructor(private navCtrl: NavController) { }
+export class HomescreenPage {
+  tableNumber: number = 0;
 
-  ngOnInit() {
-  }
+  constructor(
+    private alertController: AlertController,
+    private navCtrl: NavController,
+    private router: Router,
+    @Inject(DataService) private dataService: DataService
+  ) {}
 
   goToMenuPage() {
-    this.navCtrl.navigateForward('/menu');
+    this.router.navigate(['/menu'], { queryParams: { tableNumber: this.tableNumber } });
+  }
+
+  async showTableNumberPrompt() {
+    const alert = await this.alertController.create({
+      header: 'Nomor Meja Anda',
+      inputs: [
+        {
+          name: 'tableNumber',
+          type: 'number',
+          placeholder: 'Nomor Meja',
+        },
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+        },
+        {
+          text: 'OK',
+          handler: (data) => {
+            this.tableNumber = data.tableNumber;
+            this.goToMenuPage();
+          },
+        },
+      ],
+    });
+    await alert.present();
   }
 }
