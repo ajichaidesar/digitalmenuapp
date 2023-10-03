@@ -13,19 +13,25 @@
 <ion-content>
   <ion-header>
     <ion-toolbar>
-      <ion-title>Total Pembayaran</ion-title>
+      <ion-title>Total : {{ cartService.calculateTotalAmount () | currency: 'IDR' }}</ion-title>
     </ion-toolbar>
   </ion-header>
-
+  
   <ion-card>
     <ion-card-content>
-      <ion-label>Bayar di Kasih</ion-label>
+      <ion-label>Silahkan lakukan pembayaran ke kasir dengan memberitahukan nomor meja anda</ion-label>
+    </ion-card-content>
+  </ion-card>
+  
+  <ion-card>
+    <ion-card-content>
+      <ion-label>Pembayaran melalui transfer bisa melalui no.rek BCA - 14357890 - Faulan </ion-label>
     </ion-card-content>
   </ion-card>
 
   <ion-card>
     <ion-card-content>
-      <ion-label>Bayar via Transfer</ion-label>
+      <ion-label>Terima Kasih dan selamat menikmati - KOPI KANTHI </ion-label>
     </ion-card-content>
   </ion-card>
 </ion-content>

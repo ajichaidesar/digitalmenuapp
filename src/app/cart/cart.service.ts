@@ -4,15 +4,23 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class CartService {
-  cartItems: any[] = [];
+  cartItems: any[] = []; // Your cart items
 
   constructor() { }
 
-  addToCart(item: any) {
+  getCartItems(): any[] {
+    return this.cartItems;
+  }
+
+  addToCart(item: any): void {
     this.cartItems.push(item);
   }
 
-  getCartItems() {
-    return this.cartItems;
+  calculateTotalAmount(): number {
+    let totalAmount = 0;
+    for (const item of this.cartItems) {
+      totalAmount += item.price;
+    }
+    return totalAmount;
   }
 }
