@@ -11,18 +11,18 @@ import { CartService } from '../cart/cart.service';
 export class MenuPage implements OnInit {
   tableNumber: number = 0; // Assign an initial value to tableNumber
   menus = [
-    { name: 'Americano', image: 'assets/Menu Kopi 1 2.png', type: 'kopi', price: 20000 },
-    { name: 'Espresso', image: 'assets/Menu Kopi 1 2.png', type: 'kopi', price: 25000 },
-    { name: 'Long Black', image: 'assets/Menu Kopi 1 2.png', type: 'kopi', price: 20000 },
-    { name: 'Vietnam Drip', image: 'assets/Menu Kopi 1 2.png', type: 'kopi', price: 30000 },
-    { name: 'Ice Tea', image: 'assets/Menu Kopi 2 2.png', type: 'non-kopi', price: 15000 },
-    { name: 'Green Tea', image: 'assets/Menu Kopi 2 2.png', type: 'non-kopi', price: 20000 },
-    { name: 'Milkshake', image: 'assets/Menu Kopi 2 2.png', type: 'non-kopi', price: 25000 },
-    { name: 'Orange Juice', image: 'assets/Menu Kopi 2 2.png', type: 'non-kopi', price: 22000 },
-    { name: 'Bamkuhein', image: 'assets/Menu Kopi 3 2.png', type: 'snack', price: 15000 },
-    { name: 'Croissant', image: 'assets/Menu Kopi 3 2.png', type: 'snack', price: 10000 },
-    { name: 'Beef Burger', image: 'assets/Menu Kopi 3 2.png', type: 'snack', price: 25000 },
-    { name: 'Sandwich', image: 'assets/Menu Kopi 3 2.png', type: 'snack', price: 30000 },
+    { name: 'Americano', image: 'assets/americano.jpg', type: 'kopi', price: 20000 },
+    { name: 'Espresso', image: 'assets/espresso.jpg', type: 'kopi', price: 25000 },
+    { name: 'Long Black', image: 'assets/longblack.jpg', type: 'kopi', price: 20000 },
+    { name: 'Vietnam Drip', image: 'assets/vietnamdrip.jpg', type: 'kopi', price: 30000 },
+    { name: 'Ice Tea', image: 'assets/icetea.jpg', type: 'non-kopi', price: 15000 },
+    { name: 'Green Tea', image: 'assets/greentea.jpg', type: 'non-kopi', price: 20000 },
+    { name: 'Milkshake', image: 'assets/milkshake.jpg', type: 'non-kopi', price: 25000 },
+    { name: 'Orange Juice', image: 'assets/orangejuice.jpg', type: 'non-kopi', price: 22000 },
+    { name: 'Bamkuhein', image: 'assets/baumkuhein.jpg', type: 'snack', price: 15000 },
+    { name: 'Croissant', image: 'assets/croissant.jpg', type: 'snack', price: 10000 },
+    { name: 'Beef Burger', image: 'assets/beefburger.jpg', type: 'snack', price: 25000 },
+    { name: 'Sandwich', image: 'assets/sandwich.jpg', type: 'snack', price: 30000 },
     // Add more menu items here
   ];
   cartItems: any[] = [];

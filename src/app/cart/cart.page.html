@@ -13,7 +13,7 @@
   <ion-list>
     <ion-item *ngFor="let item of cartItems">
       <ion-label>{{ item.name }}</ion-label>
-      <ion-badge slot="end">{{ item.price | currency }}</ion-badge>
+      <ion-badge slot="end">{{ item.price | currency: 'IDR' }}</ion-badge>
       <ion-button slot="end" (click)="decreaseQuantity(item)">-</ion-button>
       <ion-badge slot="end">{{ item.quantity }}</ion-badge>
       <ion-button slot="end" (click)="increaseQuantity(item)">+</ion-button>
@@ -22,7 +22,10 @@
   <ion-button class="jumlah-pesanan" expand="full" defaultHref="/cart" color="light" (click)="openCart()">
     {{ cartItems.length }} Total Orders
   </ion-button>
+
+</ion-content>
+<ion-footer>
   <ion-button class="pesan-sekarang" expand="full" color="primary" (click)="pesanSekarang()">
     Pesan Sekarang
   </ion-button>
-</ion-content>
+</ion-footer>
